@@ -17,6 +17,7 @@ public class PersonController {
         this.personService = personService;
     }
 
+    @CrossOrigin
     @GetMapping
     public List<Person> getPeople(){
         return personService.getPeople();
@@ -36,15 +37,14 @@ public class PersonController {
 
     /*
     //Exercise: update person name and email
-    //Attempt:
     @PutMapping
     public void updatePerson(@RequestBody Person person) {
         personService.updatePerson(person);
     }
      */
 
-    //Solution:
-    @PutMapping(path="{studentId}")
+    //Solution
+    @PutMapping(path="{personId}")
     public void updatePerson(
             @PathVariable("personId") Long personId,
             @RequestParam(required = false) String name,
