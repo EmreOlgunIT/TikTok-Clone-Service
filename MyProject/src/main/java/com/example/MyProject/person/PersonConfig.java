@@ -12,11 +12,12 @@ import java.util.List;
 public class PersonConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(PersonRepository personRepository) {
+    CommandLineRunner commandLineRunner3(PersonRepository personRepository) {
         return args -> {
             Person emre = new Person(1L, "Emre", "emremail.no", LocalDate.of(1997, Month.APRIL, 18));
             Person chet = new Person("Chet", "coolmail.com", LocalDate.of(1940, Month.APRIL, 20));
             personRepository.saveAll(List.of(emre, chet));
         };
     }
+
 }

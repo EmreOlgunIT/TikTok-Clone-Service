@@ -42,7 +42,7 @@ public class SecurityConfig {
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //Session management: our JwtAuthenticationFilter is a OncePerRequestFilter, which means EVERY request should be authenticated. This means that we should NOT store the authentication state or the session state (stateless). This helps us ensure EVERY request should be authenticated. sessionCreationPolicy(SessionCreationPolicy.STATELESS) creates a new session for every request
             .and()
             .authenticationProvider(authenticationProvider)
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class); //Add our JwtAuthenticationFilter. We also want to use it BEFORE the UsernamePasswordAuthenticationFilter - that is because JwtAuthenticationFilter sets the SecurityContext, update SecurityContextHolder, and AFTER that we call the UsernamePasswordAuthenticationFilter.
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class); //Add our JwtAuthenticationFilter. We also want to use it BEFORE the UsernamePasswordAuthenticationFilter - that is because JwtAuthenticationFilter sets the SecurityContext, updates SecurityContextHolder, and AFTER that we call the UsernamePasswordAuthenticationFilter.
 
         return http.build();
 
